@@ -1,0 +1,68 @@
+#include<iostream>
+
+using namespace std;
+
+class HogwartsStudent
+{
+	public:
+		void templateMethod()	{
+			WelcomeMessage();
+			FoundingFather();
+			Motto();
+			
+			hook();
+		}
+	
+		virtual void FoundingFather() = 0;
+		virtual void Motto() = 0;
+		
+		void WelcomeMessage() {
+			cout<<" Welcome to Hogwarts ! "<<endl;
+		}
+
+};
+
+class Gryffindor : public HogwartsStudent
+{
+
+	public:
+		void FoundingFather() {
+			cout<<" FoundingFather  Godric Gryffindor "<<endl;
+		}
+		
+		void Motto() {
+			cout<<" You might belong in Gryffindor, "<<endl;
+			cout<<" Where dwell the brave at heart, "<<endl;
+			cout<<" Their daring, nerve and chivalry "<<endl;
+			cout<<" Set Gryffindor apart "<<endl;
+		}
+};
+
+
+class Slytherin : public HogwartsStudent
+{
+
+	public:
+		void FoundingFather() {
+			cout<<" FoundingFather Salazar Slytherin "<<endl;
+		}
+		
+		void Motto() {
+			cout<<" Slytherin hissssssss.... "<<endl;
+			cout<<" You'll make your real friends , "<<endl;
+			cout<<" Those cunning folk use any means to achieve thier ends "<<endl;
+		}
+};
+
+
+int main()
+{
+	
+	Gryffindor HarryPotter;
+	Slytherin DracoMalfoy;
+	HarryPotter.templateMethod();
+	DracoMalfoy.templateMethod();
+
+	
+	return 0;
+}
